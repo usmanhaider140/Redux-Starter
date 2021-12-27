@@ -1,13 +1,5 @@
-import store from "./store";
-import { bugAdded, bugRemoved, bugResolved } from "./actions";
-
-store.subscribe(() => {
-  console.log("Store Changed!", store.getState());
-});
-store.dispatch(bugAdded("bug1"));
-
-store.dispatch(bugResolved(1));
-console.log(store.getState());
-
-store.dispatch(bugRemoved(1));
+import store from "./customerStore";
+import * as actions from "./actions";
+store.subscribe(() => console.log("Calling Listeners"));
+store.dispatch(actions.bugAdded("Bug 01"));
 console.log(store.getState());
